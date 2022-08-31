@@ -11,7 +11,12 @@
 <body>
     <div class="container">
         <h1><%=budgetIndex.name%></h1>
+        <% for (const property in budgetIndex) { %>
+            <h4><%= property %></h4>
+                <p><%= budgetIndex[property] %></p>
+        <% } %>
     </div>
+    <button><a href="/budgets/">Back to Index</a></button>
     
 </body>
 </html>

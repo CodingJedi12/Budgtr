@@ -17,8 +17,8 @@
                     <td><%= budgets[i].date %></td>
                     <td><a href="/budgets/<%= i %>"><%= budgets[i].name %></a></td>
                     <td><%= budgets[i].from %></td>
-                    <td><%= budgets[i].amount %></td>
-                    <td><%= budgets[i].tags %></td>
+                    <td>$<%= budgets[i].amount %></td>
+                    <td><%= budgets[i].tags.join(", ") %></td>
                 </tr>
            <% } %>
         </table>
