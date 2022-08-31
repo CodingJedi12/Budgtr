@@ -1,8 +1,11 @@
 // DECLARE DEPENDENCIES
 const express = require("express")
-
+const budget = require("./models/budget.js")
 // INITIALIZE APP EXPRESS
 const app = express()
+
+//ESTABLISH MIDDLEWARE
+app.use(express.static('public'))
 
 ///////////////
 // ROUTES
@@ -10,7 +13,9 @@ const app = express()
 
 //INDEX
 app.get("/budgets", (req, res) => {
-    res.send("Budgets")
+    res.render("budget_index.ejs", {
+        budgets: budget
+    })
 })
 
 //NEW
@@ -25,7 +30,9 @@ app.post("/budgets", (req, res) => {
 
 //SHOW
 app.get("/budgets/:index", (req, res) => {
-    res.send("Budgets Index")
+    res.render("budget_show.ejs", {
+        budgetIndex: budget[req.params.index]
+    })
 })
 
 
